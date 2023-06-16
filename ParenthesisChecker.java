@@ -16,4 +16,26 @@ public class ParenthesisChecker {
             }
         }
     }
-}
+
+private static boolean isBalanced(String parentheses) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : parentheses.toCharArray()) {
+            if (c == '(' || c == '{') {
+                stack.push(c);
+            } else if (c == ')' || c == '}') {
+                if (stack.isEmpty()) {
+                    return false; // Unmatched closing parenthesis
+                }
+
+                char top = stack.pop();
+
+                if ((c == ')' && top != '(') || (c == '}' && top != '{')) {
+                    return false; // Mismatched opening and closing parenthesis
+                }
+            }
+        }
+
+        return stack.isEmpty(); // Stack should be empty for balanced parentheses
+        }
+    }
