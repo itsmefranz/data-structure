@@ -17,7 +17,7 @@ public class ParenthesisChecker {
         }
     }
 
-private static boolean isBalanced(String parentheses) {
+public static boolean isBalanced(String parentheses) {
         Stack<Character> stack = new Stack<>();
 
         for (char c : parentheses.toCharArray()) {
